@@ -19,8 +19,9 @@ body {
 }
 
 /* PageContainer */
-.page-container {
-    width: 1440px;
+.page-container { /*페이지 전체에 대한 컨테이너*/
+    width: 100%; 
+    /*원래 1440px로 되어있던거를 퍼센트로 바꿨어요. 픽셀로 되어있으니 화면이 이상하게 보여서.. max는 안 쓴 이유가 있어요. max를 쓰니 화면 구성이 뒤틀리더라고요. 원인은 모르겠어요.*/
     height: 1750px; /* 고정된 높이 */
     position: relative;
     background: white;
@@ -29,8 +30,8 @@ body {
 }
 
 /* Header */
-.header {
-    width: 1440px;
+.header { /* 헤더 영역 */
+    width: 1540px;
     height: 84px;
     position: absolute;
     top: 0;
@@ -43,19 +44,19 @@ body {
     padding: 0 144px;
 }
 
-.header-logo {
+.header-logo { /* 헤더 로고 영역 */
     height: auto; /* 원본 203x85 비율 유지 */
     width: auto;
     max-width: 203px; /* 로고 이미지 크기 제한 */
     max-height: 85px;
 }
 
-.nav-menu {
+.nav-menu { /* 네비게이션 메뉴 영역 */
     display: flex;
     gap: 50px;
 }
 
-.nav-link {
+.nav-link { /* 네비게이션 링크 스타일 */
     color: #18191f;
     font-size: 16px;
     font-family: Inter;
@@ -127,7 +128,7 @@ body {
 /* Hero Section */
 .hero-section {
     align-self: stretch;
-    height: 625px;
+    height: 600px;
     padding: 96px 144px;
     background: #f5f7fa;
     display: flex;
@@ -164,7 +165,7 @@ body {
     object-fit: contain;
 }
 
-/* Features Section */
+/* Features Section - 히어로 섹션 바로 아래에 있는 그 세개짜리 소개글 부분임. */
 .features-section {
     width: 100%;
     padding: 32px 144px;
@@ -175,7 +176,7 @@ body {
     align-items: center;
     gap: 32px;
     position: absolute;
-    top: 790px; /* HeroSection 아래 */
+    top: 670px; /* HeroSection 아래 */
     left: 0;
 }
 
@@ -504,36 +505,41 @@ body {
 
 /* --- AI Chat Page Styles --- */
 .chat-main-area {
-    height: 900px;
-    left: 22px; /* 이 위치는 relative로 변경하는 것을 고려 */
-    top: 84px;
-    position: absolute; /* 절대 위치 대신 Flexbox/Grid 고려 */
-    display: flex; /* inline-flex 대신 flex */
+    /* ✅ 추천: absolute 제거하고 margin-top만 줘 */
+    margin-top: 84px;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 40px;
-    width: calc(100% - 44px); /* 부모 div 너비 1440 - 22*2 */
-    margin-left: 22px; /* 위치 조정 */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 
 .chat-background-box {
-    width: 1396px;
-    height: 856px;
-    position: relative;
+    width: 100%;
+    height: 750px;
     background: #F3E8F5;
+    border-radius: 8px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 600px;  /* 콘텐츠가 작을 경우 최소 높이 */
 }
 
+
 .chat-input-background {
-    width: 490px;
+    width: 600px;
     height: 56px;
     left: 453px;
     top: 735px;
     position: absolute;
-    opacity: 0.80;
     background: white;
     border-radius: 8px;
 }
+
 
 .chat-send-icon-wrapper {
     width: 34.59px;
